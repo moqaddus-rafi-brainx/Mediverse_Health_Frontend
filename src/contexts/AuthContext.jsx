@@ -12,30 +12,26 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // user will be just the username
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user is logged in
     const token = localStorage.getItem('token');
-    if (token) {
-      // TODO: Validate token with your backend
-      // For now, we'll just set a dummy user
-      setUser({
-        id: '1',
-        name: 'John Doe',
-        email: 'john@example.com',
-      });
+    const username = localStorage.getItem('username');
+    //if token and username are present then set the user to the username
+    if (token && username) {
+      setUser(username);
     }
     setLoading(false);
   }, []);
 
   const login = async (email, password) => {
     try {
-      const response = await loginApi(email,password);
+      const response = await loginApi(email, password);
       const { token, username, message } = response.data;
       localStorage.setItem('token', token);
-      setUser({ email, username });
+      localStorage.setItem('username', username);
+      setUser(username);
       return { success: true, message };
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'Login failed. Please try again.';
@@ -43,9 +39,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const forgotPassword = async (email,setIsLoading) => {
+  const forgotPassword = async (email, setIsLoading) => {
     try {
-      const response = await forgetPasswordApi(email,setIsLoading);
+      const response = await forgetPasswordApi(email, setIsLoading);
       const { message, link } = response.data;
       return { success: true, message, link };
     } catch (error) {
@@ -74,14 +70,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
     setUser(null);
   };
 
   const value = {
-    user,
+    user, // this is just the username string
     loading,
     login,
     logout,

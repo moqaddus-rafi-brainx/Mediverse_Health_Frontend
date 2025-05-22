@@ -15,7 +15,7 @@ const PrivateRoute = ({ children }) => {
   }
 
   if (!user) {
-    // Redirect to login page but save the attempted URL
+    //Redirect to login page but save the attempted URL
     return <Navigate to="/auth/login" state={{ from: location }} replace />;
   }
 

@@ -7,8 +7,6 @@ import Login from './pages/auth/Login';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import ResetPassword from './pages/auth/ResetPassword';
 
-// Import your other components here
-// import Dashboard from './pages/Dashboard';
 
 function App() {
   return (

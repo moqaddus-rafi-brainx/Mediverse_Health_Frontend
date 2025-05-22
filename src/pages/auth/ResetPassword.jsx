@@ -16,6 +16,7 @@ const ResetPassword = () => {
   const [searchParams] = useSearchParams();
   const { resetPassword } = useAuth();
 
+  //Current password validation+Required validation
   const validatePasswords = () => {
     if (!formData.password || !formData.confirmPassword) {
       setConfirmPasswordError('');
@@ -29,6 +30,7 @@ const ResetPassword = () => {
     return true;
   };
 
+  //calls function when either password or confirm password is changed
   useEffect(() => {
     validatePasswords();
   }, [formData.password, formData.confirmPassword]);
@@ -80,6 +82,7 @@ const ResetPassword = () => {
     }
   };
 
+  //if password is reset successfully
   if (success) {
     return (
       <div className="min-h-screen relative">

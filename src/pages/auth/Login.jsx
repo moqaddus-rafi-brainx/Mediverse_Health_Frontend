@@ -24,6 +24,7 @@ const Login = () => {
       [name]: value,
     }));
 
+    //email validation
     if (name === 'email') {
       if (!value) {
         setEmailError('');
@@ -35,6 +36,7 @@ const Login = () => {
     }
   };
 
+  //used for button disable
   const isFormValid = () => {
     return formData.email && 
            formData.password && 
@@ -52,7 +54,7 @@ const Login = () => {
 
     try {
       const { message } = await login(formData.email, formData.password);
-      alert(message); // Show success message
+      alert(message); //Show success message
     } catch (err) {
       setError(err.message);
     }
@@ -66,7 +68,7 @@ const Login = () => {
         <div className="h-[60%] bg-white" />
       </div>
 
-      {/* Content */}
+      {/* Card */}
       <div className="relative min-h-screen flex items-center justify-center">
         <div className="bg-white p-7 rounded-lg shadow-lg w-[360px]">
           <h2 className="text-[24px] font-semibold text-gray-800 mb-2">
@@ -76,6 +78,7 @@ const Login = () => {
             Enter your email and password to sign in
           </p>
 
+            {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
             {error && (
               <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">

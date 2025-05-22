@@ -42,12 +42,10 @@ const ForgotPassword = () => {
     }
 
     try {
-      console.log('Sending reset request for:', email);
       const { message, link } = await forgotPassword(email,setIsLoading);
       setIsLoading(false);
       setMessage(message);
 
-      console.log('Reset link:', link); // For development purposes
     } catch (err) {
       setError(err.message);
     }
