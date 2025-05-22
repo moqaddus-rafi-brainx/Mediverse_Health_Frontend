@@ -1,12 +1,11 @@
-# React + Vite
+**🔐 authPAGES-FEATURE (React + Backend Integration)**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This branch contains the implementation of authentication-related pages for the project, including:
 
-Currently, two official plugins are available:
+ - Login
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ - Forgot Password
 
-## Expanding the ESLint configuration
+ - Reset Password
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+These pages are fully integrated with the backend for real user authentication and password management.
